@@ -2,6 +2,11 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  white-space: nowrap;
+}
+
+.col {
+  text-align: left;
 }
 
 textarea {
@@ -11,6 +16,11 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+}
+
+textarea::placeholder {
+  color: rgb(138, 138, 138);
+  font-style: italic;
 }
 
 .jumbotron {
@@ -34,6 +44,7 @@ textarea {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  margin-bottom: 20px;
 }
 
 .hour {

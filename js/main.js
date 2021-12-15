@@ -27,8 +27,9 @@ $( document ).ready(function() {
     return `
       <div class="row">
         <div class="col-2">${h}</div>
-        <div class="col-8 ${color}"><input /></div>
-        <div class="col-2"><button class="save">Save</button></div>
+        <div class="col-10 time-block ${color}">
+          <textarea placeholder="create entry" /><button class="saveBtn">Save</button>
+        </div>
       </div>
     `;
   };
