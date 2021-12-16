@@ -26,7 +26,7 @@ $( document ).ready(function() {
   const renderRow = (h, color) => {
     return `
       <div class="row">
-        <div class="hour col-2">${moment().set('hour', h).format("h:mm a")}</div>
+        <div class="hour col-2">${moment().set('hour', h).set('minute', 00).format("h:mm a")}</div>
         <div class="col-10 time-block ${color}"><textarea placeholder="create entry" /><button class="saveBtn">Save</button></div>
       </div>
     `;
