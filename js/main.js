@@ -6,9 +6,23 @@ $( document ).ready(function() {
   /**
    * stub functions to get/set localStorage
    */
-  const saveInput = () => {};
+  const saveInput = (val, index) => {
+    let notesArray = JSON.parse(localStorage.getItem("notes")) || [];
+    notesArray[Number(index)] = val;
+    localStorage.setItem("notes", JSON.stringify(notesArray));
+  };
   const displayInput = () => {};
   
+  /**
+   * Save note on button click
+   */
+   $('.container').on("click", ".saveBtn", function (event) { 
+     const container = $(event.target.parentNode);
+     const index = container.attr("data-index");
+     const note = container.children("textarea")[0].value;
+     saveInput(note, index);
+   });
+
   /**
    * 
    * @param {number} hour
@@ -23,11 +37,11 @@ $( document ).ready(function() {
    * 
    * return row element to be rendered
    */
-  const renderRow = (h, color) => {
+  const renderRow = (h, color, i, val) => {
     return `
       <div class="row">
         <div class="hour col-2">${moment().set('hour', h).set('minute', 00).format("h:mm a")}</div>
-        <div class="col-10 time-block ${color}"><textarea placeholder="create entry" /><button class="saveBtn">Save</button></div>
+        <div data-index="${i}" class="col-10 time-block ${color}"><textarea placeholder="create entry">${val}</textarea><button class="saveBtn">Save</button></div>
       </div>
     `;
   };
@@ -37,11 +51,13 @@ $( document ).ready(function() {
    */
   const renderRows = () => {
     let container = $(".container");
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
     for (let i = 0; i < hoursInDay; i++) {
       const rowHour = startTime + i;
       /* pass in hour */
       const rowColor = getColorCode(rowHour);
-      const r = renderRow(rowHour, rowColor, i);
+      const val = notes[i] || '';
+      const r = renderRow(rowHour, rowColor, i, val);
       container.append(r);
     }
   };
