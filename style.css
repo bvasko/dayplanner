@@ -13,9 +13,9 @@ textarea {
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
-  border-left: 1px solid black;
+  width: 93%;
   padding: 10px;
+  padding-top: 22px;
 }
 
 textarea::placeholder {
@@ -37,20 +37,22 @@ textarea::placeholder {
 
 .time-block {
   text-align: center;
-  border-radius: 15px;
+  border-radius: 0px 15px 15px 0px;
+  text-align: left;
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
-  margin-bottom: 20px;
+  padding: 1px 0px;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding-top: 8px;
 }
 
 .past {
@@ -74,6 +76,8 @@ textarea::placeholder {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  height: 95%;
+  vertical-align: top;
 }
 
 .saveBtn i:hover {
